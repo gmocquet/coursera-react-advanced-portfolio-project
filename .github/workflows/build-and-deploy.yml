@@ -9,6 +9,11 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write 
+  id-token: write  
+
 jobs:
   build-and-deploy:
     name: Build and Deploy
@@ -18,12 +23,21 @@ jobs:
       - uses: actions/setup-node@v4.0.2
         with:
           node-version: "20.12.2"
-      - run: npm ci
-      - run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions Bot"
-      - run: npm run deploy
-      - run: npm run predeploy
-      - run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build project
+        run: npm run predeploy
+      
+      - name: Upload project articats
+        uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          name: 'github-pages'
+          path: build
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4.0.5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: 'github-pages'
