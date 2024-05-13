@@ -24,11 +24,7 @@ You may also see any lint errors in the console.
     <source src="docs/mov/demo.mp4" type="video/mp4" />
 </video>
 
-<<<<<<< HEAD
 https://github.com/gmocquet/coursera-react-advanced-portfolio-project/assets/1082289/8cda8a04-adf9-4fe0-9003-f500304c933f
-=======
-
->>>>>>> 2e9fb25 (first version)
 
 ## Samples
 
