@@ -18,6 +18,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+## Live Demo
+
+https://gmocquet.github.io/coursera-react-advanced-portfolio-project/
+
 ## Demo
 
 <video autoplay loop muted>
