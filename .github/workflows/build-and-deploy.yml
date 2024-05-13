@@ -19,6 +19,10 @@ jobs:
         with:
           node-version: "20.12.2"
       - run: npm ci
+      - run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "GitHub Actions Bot"
+      - run: npm run deploy
       - run: npm run predeploy
       - run: npm run deploy
         env:
