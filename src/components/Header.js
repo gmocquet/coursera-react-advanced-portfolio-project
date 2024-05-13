@@ -33,7 +33,8 @@ const socials = [
 ];
 
 const Header = () => {
-  const handleClick = (anchor) => {
+  const handleClick = (anchor, e) => {
+    e.preventDefault();
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
     if (element) {
@@ -96,8 +97,8 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a key="projects" href="#projects" onClick={e => handleClick("projects")}>Projects</a>
-              <a key="contact" href="#contact-me" onClick={e => handleClick("contactme")}>Contact Me</a>
+              <a key="projects" href="#projects" onClick={e => handleClick("projects", e)}>Projects</a>
+              <a key="contact" href="#contact-me" onClick={e => handleClick("contactme", e)}>Contact Me</a>
             </HStack>
           </nav>
         </HStack>
